@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Sarmad Mirza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> Columns </title>
+<link rel="stylesheet" type="text/css" href="../css/columns.css">
+</head>
+
+<body>
+  <header>
+  <img src="../media/campchinalogo.png" alt="Logo">  </img>
+  </header>
+<div class="row">
+  <div class="column1">
+    <!-- Load font awesome icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- The social media icon bar -->
+  <div class="icon-bar">
+    <a href="https://www.facebook.com/CampCoUK/" target="_blank" class="facebook">
+      <i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/campcouk" target="_blank" class="twitter">
+      <i class="fa fa-twitter"></i></a>
+    <a href="https://www.instagram.com/camp.co.uk/" target="_blank" class="fa fa-instagram"></a>
+  </div>
+    <a href=index.html>Home Page</a>
+    <a href=AboutUs.html>About us</a>
+    <a href=Payments.html>Payments</a>
+    <a href=ChinaRelatedInfo.html>China related Info</a>
+    <a href=Gallery.html>Gallery</a>
+    <a href=FAQ.html>FAQ</a>
+    <a href=ApplyNow.html>Apply Now</a>
+    <a href=Contactdetails.html>Contact details</a>
+  </div>
+  <div class="column2">
+    <div class="container">
+            <invasion-form class="ng-isolate-scope"><h1 id="pageHeader" class="ng-binding">Camp China</h1>
+
+    <!-- ngIf: $ctrl.step === 1 --><main-information site="$ctrl.site" accept-terms-and-conditions="$ctrl.acceptTermsAndConditions" initial-opening="$ctrl.initialOpening"
+	is-product-option-section-visible="$ctrl.isProductOptionSectionVisible()" payment-type="$ctrl.paymentType" person="$ctrl.person" person-dob="$ctrl.personDOB"
+	product="$ctrl.product" product-fields="$ctrl.productFields" product-field-answers="$ctrl.productFieldAnswers" product-option="$ctrl.productOption" ng-if="$ctrl.step === 1"
+	class="ng-scope ng-isolate-scope"><!-- ngIf: !$ctrl.bookingCreated --><section ng-if="!$ctrl.bookingCreated" class="ng-scope">
+
+        <!-- ngIf: $ctrl.site --><form name="$ctrl.form" ng-if="$ctrl.site" ng-submit="$ctrl.submit()" ng-model-options="{updateOn: 'change blur', debounce: {'change': 0, 'blur': 0} }"
+		novalidate="" stripe-disabled="!$ctrl.site._paymentLogicEnabled" stripe-got-result="$ctrl.onStripeGotResult(err, token, method)" stripe-process-payment="$ctrl.stripeProcessPayment"
+		stripe-immediate-amount="$ctrl.paymentAmount" stripe-element=""
+		class="ng-pristine ng-scope ng-isolate-scope ng-invalid ng-invalid-required ng-valid-email ng-valid-validate-referral-code ng-valid-validate-promo-code">
+
+            <!-- ngIf: $ctrl.formStep == 1 --><div ng-if="$ctrl.formStep == 1" class="ng-scope">
+
+                <div class="welcome-text well">
+                    <h2>Welcome</h2>
+                    <div ng-bind-html="$ctrl.site.WelcomeText | nl2br" class="ng-binding"><h3 style="text-align: center;"><span >
+					WOOHOO! YOU'RE NOW JUST 2 MINUTES AWAY FROM THE TRIP OF A LIFETIME!</span></h3><br><p style="text-align: center;"><span>
+					Start your application for Camp China by completing the following stages:</span></p><br><h4 style="text-align: center;"><span>
+					Stage 1) Enter your details</span><br></h4><h4 style="text-align: center;"><span >Stage 2) Select your dates </span><br></h4><h4
+					style="text-align: center;"><span >Stage 3) Select your preferred payment plan - remember, if you pay in full, you'll receive a £50 discount!
+					</span></h4><br><p style="text-align: center;"><span >Once you<strong> complete the form below </strong>and we accept your application,
+					your place for your specified date at Camp China will be confirmed; a member of the team will be in touch within 24 hours to confirm your spot. You will also
+					receive a confirmation email to pay your £49 deposit. The deposit will secure your place subject to keeping up with your payment plan; receipt of full payment
+					will guarantee your spot on the program.</span></p><br><h3 style="text-align: center;"><span >So, what are you waiting for?</span></h3><br>
+					<h3 style="text-align: center;"><span>Complete your application below!</span></h3></div>
+                </div>
+
+                <hr>
+
+                <div class="form-group" ng-class="{'has-error': $ctrl.showValError('firstName')}">
+                    <label for="first-name">
+                        First Name(s)
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="first-name" name="firstName" required="" focus-on="firstName"
+					ng-model="$ctrl.person.firstName" ng-change="$ctrl.onFormUpdated()">
+                </div>
+                <div class="form-group" ng-class="{'has-error': $ctrl.showValError('lastName')}">
+                    <label for="last-name">
+                        Last Name
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="last-name" name="lastName" required="" ng-model="$ctrl.person.lastName"
+					ng-change="$ctrl.onFormUpdated()">
+                </div>
+
+                <!-- ngIf: $ctrl.site.Labels.name_entry_tip !== '' --><p class="help-block ng-binding ng-scope" ng-if="$ctrl.site.Labels.name_entry_tip !== ''" ng-bind-html=":
+				: $ctrl.site.Labels.name_entry_tip || 'Please enter your name exactly as it appears on your passport.'">
+				Please enter your name exactly as it appears on your passport.</p><!-- end ngIf: $ctrl.site.Labels.name_entry_tip !== '' -->
+
+                <!-- ngIf: :: $ctrl.site.Settings.applicantGender --><div class="form-group ng-scope" ng-if=":: $ctrl.site.Settings.applicantGender" ng-class="{'has-error':
+				$ctrl.showValError('gender')}">
+                    <label for="gender-male">
+                        Gender
+                        <span class="text-danger">*</span>
+                    </label>
+                    <div class="radio" style="margin: 0 0 20px;">
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" id="gender-male" value="1" ng-model="$ctrl.person.gender" ng-required="!$ctrl.person.gender"
+							class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="required">
+                            Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" id="gender-female" value="2" ng-model="$ctrl.person.gender" ng-required="!$ctrl.person.gender"
+							class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="required">
+                            Female
+                        </label>
+                    </div>
+                </div><!-- end ngIf: :: $ctrl.site.Settings.applicantGender -->
+
+
+                <div class="form-group" ng-class="{'has-error': $ctrl.showValError(['personDOBDay','personDOBMonth','personDOBMonth'])}">
+                    <label for="dob-day" class="ng-binding">
+                        Date of Birth
+                        <span class="text-danger">*</span>
+                    </label>
+
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label class="sr-only" for="dob-day">Day</label>
+                            <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="dob-day" style="width:80px"
+							name="personDOBDay" required="" ng-model="$ctrl.personDob.day" ng-model-options="{}" ng-change="$ctrl.onDOBChanged()">
+                                <option disabled="" value="">Day</option>
+                                <!-- ngRepeat: d in $ctrl.days --><option value="01" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">01</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="02" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">02</option>
+
+								<!-- end ngRepeat: d in $ctrl.days --><option value="03" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">03</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="04" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">04</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="05" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">05</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="06" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">06</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="07" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">07</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="08" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">08</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="09" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">09</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="10" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">10</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="11" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">11</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="12" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">12</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="13" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">13</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="14" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">14</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="15" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">15</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="16" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">16</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="17" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">17</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="18" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">18</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="19" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">19</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="20" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">20</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="21" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">21</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="22" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">22</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="23" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">23</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="24" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">24</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="25" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">25</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="26" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">26</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="27" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">27</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="28" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">28</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="29" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">29</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="30" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">30</option>
+								<!-- end ngRepeat: d in $ctrl.days --><option value="31" ng-repeat="d in $ctrl.days" class="ng-binding ng-scope">31</option>
+								<!-- end ngRepeat: d in $ctrl.days -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="dob-month">Month</label>
+                            <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="dob-month" style="width:140px"
+							name="personDOBMonth" required="" ng-model="$ctrl.personDob.month" ng-model-options="{}" ng-change="$ctrl.onMonthChanged()">
+                                <option disabled="" value="">Month</option>
+                                <!-- ngRepeat: m in $ctrl.invasionFormCtrl.months --><option value="01" ng-repeat="m in $ctrl.invasionFormCtrl.months"
+								class="ng-binding ng-scope">January</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months --><option value="02"
+								ng-repeat="m in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">February</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months -->
+								<option value="03" ng-repeat="m in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">March</option><!-- end ngRepeat:
+								m in $ctrl.invasionFormCtrl.months --><option value="04" ng-repeat="m in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">
+								April</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months --><option value="05" ng-repeat="m in $ctrl.invasionFormCtrl.months"
+								class="ng-binding ng-scope">May</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months --><option value="06" ng-repeat="m
+								in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">June</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months -->
+								<option value="07" ng-repeat="m in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">July</option><!-- end ngRepeat: m in
+								$ctrl.invasionFormCtrl.months --><option value="08" ng-repeat="m in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">August
+								</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months --><option value="09" ng-repeat="m in $ctrl.invasionFormCtrl.months"
+								class="ng-binding ng-scope">September</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months --><option value="10" ng-repeat="m
+								in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">October</option><!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months -->
+								<option value="11" ng-repeat="m in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">November</option><!-- end ngRepeat: m in
+								$ctrl.invasionFormCtrl.months --><option value="12" ng-repeat="m in $ctrl.invasionFormCtrl.months" class="ng-binding ng-scope">December</option>
+								<!-- end ngRepeat: m in $ctrl.invasionFormCtrl.months -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="dob-year">Year</label>
+                            <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="dob-year" style="width:100px"
+							name="personDOBYear" required="" ng-model="$ctrl.personDob.year" ng-model-options="{}" ng-change="$ctrl.onDOBChanged()">
+                                <option disabled="" value="">Year</option>
+                                <!-- ngRepeat: y in $ctrl.years --><option value="2019" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2019</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2018" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2018</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2017" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2017</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2016" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2016</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2015" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2015</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2014" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2014</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2013" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2013</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2012" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2012</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2011" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2011</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2010" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2010</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2009" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2009</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2008" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2008</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2007" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2007</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2006" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2006</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2005" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2005</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2004" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2004</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2003" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2003</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2002" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2002</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2001" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2001</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="2000" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">2000</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="1999" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1999</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="1998" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1998</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="1997" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1997</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="1996" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1996</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="1995" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1995</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="1994" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1994</option>
+								<!-- end ngRepeat: y in $ctrl.years --><option value="1993" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1993</option><!-- end ngRepeat: y in $ctrl.years --><option value="1992" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1992</option><!-- end ngRepeat: y in $ctrl.years --><option value="1991" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1991</option><!-- end ngRepeat: y in $ctrl.years --><option value="1990" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1990</option><!-- end ngRepeat: y in $ctrl.years --><option value="1989" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1989</option><!-- end ngRepeat: y in $ctrl.years --><option value="1988" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1988</option><!-- end ngRepeat: y in $ctrl.years --><option value="1987" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1987</option><!-- end ngRepeat: y in $ctrl.years --><option value="1986" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1986</option><!-- end ngRepeat: y in $ctrl.years --><option value="1985" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1985</option><!-- end ngRepeat: y in $ctrl.years --><option value="1984" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1984</option><!-- end ngRepeat: y in $ctrl.years --><option value="1983" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1983</option><!-- end ngRepeat: y in $ctrl.years --><option value="1982" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1982</option><!-- end ngRepeat: y in $ctrl.years --><option value="1981" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1981</option><!-- end ngRepeat: y in $ctrl.years --><option value="1980" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1980</option><!-- end ngRepeat: y in $ctrl.years --><option value="1979" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1979</option><!-- end ngRepeat: y in $ctrl.years --><option value="1978" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1978</option><!-- end ngRepeat: y in $ctrl.years --><option value="1977" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1977</option><!-- end ngRepeat: y in $ctrl.years --><option value="1976" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1976</option><!-- end ngRepeat: y in $ctrl.years --><option value="1975" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1975</option><!-- end ngRepeat: y in $ctrl.years --><option value="1974" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1974</option><!-- end ngRepeat: y in $ctrl.years --><option value="1973" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1973</option><!-- end ngRepeat: y in $ctrl.years --><option value="1972" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1972</option><!-- end ngRepeat: y in $ctrl.years --><option value="1971" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1971</option><!-- end ngRepeat: y in $ctrl.years --><option value="1970" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1970</option><!-- end ngRepeat: y in $ctrl.years --><option value="1969" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1969</option><!-- end ngRepeat: y in $ctrl.years --><option value="1968" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1968</option><!-- end ngRepeat: y in $ctrl.years --><option value="1967" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1967</option><!-- end ngRepeat: y in $ctrl.years --><option value="1966" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1966</option><!-- end ngRepeat: y in $ctrl.years --><option value="1965" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1965</option><!-- end ngRepeat: y in $ctrl.years --><option value="1964" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1964</option><!-- end ngRepeat: y in $ctrl.years --><option value="1963" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1963</option><!-- end ngRepeat: y in $ctrl.years --><option value="1962" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1962</option><!-- end ngRepeat: y in $ctrl.years --><option value="1961" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1961</option><!-- end ngRepeat: y in $ctrl.years --><option value="1960" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1960</option><!-- end ngRepeat: y in $ctrl.years --><option value="1959" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1959</option><!-- end ngRepeat: y in $ctrl.years --><option value="1958" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1958</option><!-- end ngRepeat: y in $ctrl.years --><option value="1957" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1957</option><!-- end ngRepeat: y in $ctrl.years --><option value="1956" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1956</option><!-- end ngRepeat: y in $ctrl.years --><option value="1955" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1955</option><!-- end ngRepeat: y in $ctrl.years --><option value="1954" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1954</option><!-- end ngRepeat: y in $ctrl.years --><option value="1953" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1953</option><!-- end ngRepeat: y in $ctrl.years --><option value="1952" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1952</option><!-- end ngRepeat: y in $ctrl.years --><option value="1951" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1951</option><!-- end ngRepeat: y in $ctrl.years --><option value="1950" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1950</option><!-- end ngRepeat: y in $ctrl.years --><option value="1949" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1949</option><!-- end ngRepeat: y in $ctrl.years --><option value="1948" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1948</option><!-- end ngRepeat: y in $ctrl.years --><option value="1947" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1947</option><!-- end ngRepeat: y in $ctrl.years --><option value="1946" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1946</option><!-- end ngRepeat: y in $ctrl.years --><option value="1945" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1945</option><!-- end ngRepeat: y in $ctrl.years --><option value="1944" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1944</option><!-- end ngRepeat: y in $ctrl.years --><option value="1943" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1943</option><!-- end ngRepeat: y in $ctrl.years --><option value="1942" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1942</option><!-- end ngRepeat: y in $ctrl.years --><option value="1941" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1941</option><!-- end ngRepeat: y in $ctrl.years --><option value="1940" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1940</option><!-- end ngRepeat: y in $ctrl.years --><option value="1939" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1939</option><!-- end ngRepeat: y in $ctrl.years --><option value="1938" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1938</option><!-- end ngRepeat: y in $ctrl.years --><option value="1937" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1937</option><!-- end ngRepeat: y in $ctrl.years --><option value="1936" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1936</option><!-- end ngRepeat: y in $ctrl.years --><option value="1935" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1935</option><!-- end ngRepeat: y in $ctrl.years --><option value="1934" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1934</option><!-- end ngRepeat: y in $ctrl.years --><option value="1933" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1933</option><!-- end ngRepeat: y in $ctrl.years --><option value="1932" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1932</option><!-- end ngRepeat: y in $ctrl.years --><option value="1931" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1931</option><!-- end ngRepeat: y in $ctrl.years --><option value="1930" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1930</option><!-- end ngRepeat: y in $ctrl.years --><option value="1929" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1929</option><!-- end ngRepeat: y in $ctrl.years --><option value="1928" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1928</option><!-- end ngRepeat: y in $ctrl.years --><option value="1927" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1927</option><!-- end ngRepeat: y in $ctrl.years --><option value="1926" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1926</option><!-- end ngRepeat: y in $ctrl.years --><option value="1925" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1925</option><!-- end ngRepeat: y in $ctrl.years --><option value="1924" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1924</option><!-- end ngRepeat: y in $ctrl.years --><option value="1923" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1923</option><!-- end ngRepeat: y in $ctrl.years --><option value="1922" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1922</option><!-- end ngRepeat: y in $ctrl.years --><option value="1921" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1921</option><!-- end ngRepeat: y in $ctrl.years --><option value="1920" ng-repeat="y in $ctrl.years" class="ng-binding ng-scope">1920</option><!-- end ngRepeat: y in $ctrl.years -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- ngIf: :: $ctrl.site.Settings.applicantAgeWarning --><p class="help-block ng-scope" ng-if=":: $ctrl.site.Settings.applicantAgeWarning">Applicants must be 18 or over before due date of departure</p><!-- end ngIf: :: $ctrl.site.Settings.applicantAgeWarning -->
+
+                <div class="form-group" ng-class="{'has-error': $ctrl.showValError('personEmail')}">
+                    <label for="email">
+                        Email
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control ng-pristine ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required" id="email" type="email" name="personEmail" required="" ng-model="$ctrl.person.email" ng-change="$ctrl.onFormUpdated()">
+                </div>
+
+                <div class="form-group" ng-class="{'has-error': $ctrl.showValError('personPhone')}">
+                    <label for="phone">
+                        Phone
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="phone" name="personPhone" required="" ng-model="$ctrl.person.phone" ng-change="$ctrl.onFormUpdated()">
+                </div>
+
+                <!-- ngIf: $ctrl.site.Settings.referralCode --><div class="form-group ng-scope ng-hide" ng-if="$ctrl.site.Settings.referralCode" ng-hide="!$ctrl.person.referralCode" ng-class="{'has-error': $ctrl.form.referralCode.$invalid, 'has-success': $ctrl.person.referralCode &amp;&amp; $ctrl.form.referralCode.$valid}">
+                    <!-- BLOCK ONLY SHOWN IF CODE INVALID -->
+                    <label for="referralCode">
+                        Referral Code
+                        <span class="text-muted">(optional)</span>
+                    </label>
+                    <input class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty ng-valid-validate-referral-code" id="referralCode" type="text" name="referralCode" style="width: 180px;" ng-model="$ctrl.person.referralCode" validate-referral-code="">
+
+                    <!-- ngIf: $ctrl.form.referralCode.$invalid -->
+
+                    <!-- ngIf: $ctrl.form.referralCode.$pending.validateReferralCode -->
+                </div><!-- end ngIf: $ctrl.site.Settings.referralCode -->
+
+                <section class="product-selection">
+
+                    <!-- ngIf: $ctrl.site.Labels.product_selection_intro !== '' --><p class="help-block ng-binding ng-scope" ng-if="$ctrl.site.Labels.product_selection_intro !== ''" ng-bind-html=":: $ctrl.site.Labels.product_selection_intro || 'Please select the Location and Date you would like to attend:'">Please select the Location and Date you would like to attend:</p><!-- end ngIf: $ctrl.site.Labels.product_selection_intro !== '' -->
+
+                    <!-- ngIf: $ctrl.site.Products.length !== 1 --><div class="form-group ng-scope" ng-class="{'has-error': $ctrl.showValError('select-product')}" ng-if="$ctrl.site.Products.length !== 1">
+                        <label class="ng-binding">
+                            Select Your Experience
+                            <span class="text-danger">*</span>
+                        </label>
+                        <ul class="list-unstyled">
+                            <!-- ngRepeat: p in $ctrl.site.Products --><li ng-repeat="p in $ctrl.site.Products" class="ng-scope">
+                                <label class="ng-binding">
+                                    <input type="radio" name="select-product" required="" focus-on="product_0" ng-model="$ctrl.product" ng-model-options="{}" ng-change="$ctrl.onProductChanged()" ng-value="p" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" value="[object Object]">
+                                    Camp China Ultimate 2019
+                                </label>
+                            </li><!-- end ngRepeat: p in $ctrl.site.Products --><li ng-repeat="p in $ctrl.site.Products" class="ng-scope">
+                                <label class="ng-binding">
+                                    <input type="radio" name="select-product" required="" focus-on="product_1" ng-model="$ctrl.product" ng-model-options="{}" ng-change="$ctrl.onProductChanged()" ng-value="p" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" value="[object Object]">
+                                    Camp China internship 2019
+                                </label>
+                            </li><!-- end ngRepeat: p in $ctrl.site.Products --><li ng-repeat="p in $ctrl.site.Products" class="ng-scope">
+                                <label class="ng-binding">
+                                    <input type="radio" name="select-product" required="" focus-on="product_2" ng-model="$ctrl.product" ng-model-options="{}" ng-change="$ctrl.onProductChanged()" ng-value="p" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" value="[object Object]">
+                                    Camp China 3 Week Tour 2019
+                                </label>
+                            </li><!-- end ngRepeat: p in $ctrl.site.Products -->
+                        </ul>
+                    </div><!-- end ngIf: $ctrl.site.Products.length !== 1 -->
+
+                    <!-- ngIf: $ctrl.site.Products.length == 1 && $ctrl.site.Settings.productSelectionVisibleForSingleProduct -->
+
+                    <!-- ngIf: $ctrl.isProductOptionSectionVisible() --><div class="form-group ng-scope" ng-class="{'has-error': $ctrl.showValError('select-product-option')}" ng-if="$ctrl.isProductOptionSectionVisible()">
+                        <label class="ng-binding">
+                            Select an Intake
+                            <span class="text-danger">*</span>
+                        </label>
+
+                        <!-- ngIf: $ctrl.showValError('select-product-option') -->
+
+                        <ul class="list-unstyled">  <!-- show the relevant product options for the above selected product -->
+                            <!-- ngRepeat: po in $ctrl.product.ProductOptions --><!-- ngIf: :: !po.Hidden --><li ng-repeat="po in $ctrl.product.ProductOptions" ng-if=":: !po.Hidden" class="ng-scope">
+                                <label class="ng-binding">
+                                    <input type="radio" name="select-product-option" required="" ng-model="$ctrl.productOption" ng-model-options="{}" ng-change="$ctrl.onSelectProductOption()" ng-disabled=":: po.SpotsRemaining < 1" ng-value="po" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" value="[object Object]">
+                                    6th May - 3rd June 2019
+                                    <!-- ngIf: :: po.SpotsRemaining > 0 && po.SpotsRemaining <= 10 -->
+                                    <!-- ngIf: :: po.SpotsRemaining < 1 -->
+                                </label>
+                            </li><!-- end ngIf: :: !po.Hidden --><!-- end ngRepeat: po in $ctrl.product.ProductOptions --><!-- ngIf: :: !po.Hidden --><li ng-repeat="po in $ctrl.product.ProductOptions" ng-if=":: !po.Hidden" class="ng-scope">
+                                <label class="ng-binding">
+                                    <input type="radio" name="select-product-option" required="" ng-model="$ctrl.productOption" ng-model-options="{}" ng-change="$ctrl.onSelectProductOption()" ng-disabled=":: po.SpotsRemaining < 1" ng-value="po" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" value="[object Object]">
+                                    3rd June - 1st July 2019
+                                    <!-- ngIf: :: po.SpotsRemaining > 0 && po.SpotsRemaining <= 10 -->
+                                    <!-- ngIf: :: po.SpotsRemaining < 1 -->
+                                </label>
+                            </li><!-- end ngIf: :: !po.Hidden --><!-- end ngRepeat: po in $ctrl.product.ProductOptions --><!-- ngIf: :: !po.Hidden --><li ng-repeat="po in $ctrl.product.ProductOptions" ng-if=":: !po.Hidden" class="ng-scope">
+                                <label class="ng-binding">
+                                    <input type="radio" name="select-product-option" required="" ng-model="$ctrl.productOption" ng-model-options="{}" ng-change="$ctrl.onSelectProductOption()" ng-disabled=":: po.SpotsRemaining < 1" ng-value="po" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" value="[object Object]">
+                                    1st July - 29th July 2019
+                                    <!-- ngIf: :: po.SpotsRemaining > 0 && po.SpotsRemaining <= 10 -->
+                                    <!-- ngIf: :: po.SpotsRemaining < 1 -->
+                                </label>
+                            </li><!-- end ngIf: :: !po.Hidden --><!-- end ngRepeat: po in $ctrl.product.ProductOptions --><!-- ngIf: :: !po.Hidden --><li ng-repeat="po in $ctrl.product.ProductOptions" ng-if=":: !po.Hidden" class="ng-scope">
+                                <label class="ng-binding">
+                                    <input type="radio" name="select-product-option" required="" ng-model="$ctrl.productOption" ng-model-options="{}" ng-change="$ctrl.onSelectProductOption()" ng-disabled=":: po.SpotsRemaining < 1" ng-value="po" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" value="[object Object]">
+                                    5th August - 2nd September 2019
+                                    <!-- ngIf: :: po.SpotsRemaining > 0 && po.SpotsRemaining <= 10 -->
+                                    <!-- ngIf: :: po.SpotsRemaining < 1 -->
+                                </label>
+                            </li><!-- end ngIf: :: !po.Hidden --><!-- end ngRepeat: po in $ctrl.product.ProductOptions -->
+                        </ul>
+                    </div><!-- end ngIf: $ctrl.isProductOptionSectionVisible() -->
+
+                    <!-- ngIf: $ctrl.site.Settings.multiIntakeTip --><div class="panel panel-default ng-scope" style="margin-bottom: 40px" ng-if="$ctrl.site.Settings.multiIntakeTip">
+                        <!-- ngIf: :: $ctrl.site.Labels.product_multi_intake_tip -->
+                        <!-- ngIf: :: !$ctrl.site.Labels.product_multi_intake_tip --><div class="panel-body ng-scope" ng-if=":: !$ctrl.site.Labels.product_multi_intake_tip">
+                            If you want to do more than one intake then drop us an email to info@campchina.com</a> and we can check if this is possible for you.
+                        </div><!-- end ngIf: :: !$ctrl.site.Labels.product_multi_intake_tip -->
+                    </div><!-- end ngIf: $ctrl.site.Settings.multiIntakeTip -->
+
+
+                </section>
+
+                <!-- ngIf: :: $ctrl.site.Settings.criminalAndHealthDisclaimers --><section class="custom-fields ng-scope" ng-if=":: $ctrl.site.Settings.criminalAndHealthDisclaimers">
+
+
+                    <div class="form-group">
+                        <label>
+                            Please confirm
+                            <span class="text-danger">*</span>
+                        </label>
+
+                        <!-- ngIf: $ctrl.showValError('medicalDisclaimer') || $ctrl.showValError('criminalDisclaimer') -->
+
+                        <div class="checkbox">
+                            <label for="medicalDisclaimer" class="ng-binding">
+                                <input type="checkbox" id="medicalDisclaimer" name="medicalDisclaimer" required="" ng-model="$ctrl.medicalDisclaimer" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"> I have no pre-existing medical conditions that would prevent me from travelling to this destination
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="criminalDisclaimer" class="ng-binding">
+                                <input type="checkbox" id="criminalDisclaimer" name="criminalDisclaimer" required="" ng-model="$ctrl.criminalDisclaimer" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"> I have no past criminal convictions that would prevent me from travelling to this destination
+                            </label>
+                        </div>
+
+                    </div>
+
+                </section><!-- end ngIf: :: $ctrl.site.Settings.criminalAndHealthDisclaimers -->
+
+                <!-- ngIf: $ctrl.site.Settings.citizenshipQuestion -->
+
+                <!-- ngIf: $ctrl.site.Settings.irelandQuestion -->
+
+                <!-- ngIf: $ctrl.productCustomFieldsLoading -->
+
+                <!-- ngIf: ! $ctrl.productCustomFieldsLoading --><section class="custom-fields ng-scope" ng-if="! $ctrl.productCustomFieldsLoading">
+
+
+                    <!-- ngRepeat: f in $ctrl.productFields -->
+
+                </section><!-- end ngIf: ! $ctrl.productCustomFieldsLoading -->
+
+                <!-- ngIf: $ctrl.site.Settings.promoCode --><section class="promo ng-scope" ng-if="$ctrl.site.Settings.promoCode">
+                    <div class="form-group" ng-class="{'has-error': $ctrl.form.promoCode.$valid == false, 'has-success': $ctrl.person.promoCode &amp;&amp; $ctrl.form.promoCode.$valid}">
+                        <label for="promoCode">
+                            Promo Code
+                            <span class="text-muted">(if any)</span>
+                        </label>
+
+                        <input class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty ng-valid-validate-promo-code" id="promoCode" type="text" name="promoCode"
+						style="width: 180px; display: inline-block" validate-promo-code="$ctrl.promoVal" ng-model="$ctrl.person.promoCode" ng-model-options="{ allowInvalid: false, debounce:
+						200, updateOn: 'blur debounce' }" product-id="$ctrl.product.Id" product-option-id="$ctrl.productOption.Id" site-id="$ctrl.site.Id"
+						on-promo-code-changed="$ctrl.onPromoCodeChanged(result)">
+
+                        <!-- ngIf: $ctrl.form.promoCode.$valid && $ctrl.person.promoCode && $ctrl.promoVal.Description -->
+
+                        <!-- ngIf: $ctrl.form.promoCode.$valid == false -->
+
+                        <!-- ngIf: $ctrl.form.promoCode.$pending.validatePromoCode -->
+                    </div>
+
+                </section><!-- end ngIf: $ctrl.site.Settings.promoCode -->
+
+                <section class="terms">
+                    <div class="form-group" ng-class="{'has-error': $ctrl.showValError('acceptTermsAndConditions')}">
+                        <label for="acceptTermsAndConditions">
+                            Terms and Conditions
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="acceptTermsAndConditions"
+								name="acceptTermsAndConditions" required="" ng-model="$ctrl.acceptTermsAndConditions" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+								I comply with the Terms and conditions</a>
+                            </label>
+                        </div>
+                        <!-- ngIf: $ctrl.showValError('acceptTermsAndConditions') -->
+                    </div>
+                </section>
+
+            </div><!-- end ngIf: $ctrl.formStep == 1 -->
+
+
+            <div class="well center-block">
+                <button class="btn btn-primary btn-lg btn-block ng-binding" ng-disabled="$ctrl.processingBooking" type="submit">Proceed</button>
+            </div>
+
+            <p>&nbsp;</p> <!-- spacer -->
+        </form><!-- end ngIf: $ctrl.site -->
+    </section><!-- end ngIf: !$ctrl.bookingCreated -->
+
+
+
+    <!-- ngIf: $ctrl.bookingCreated && $ctrl.intellibookBookingCreated -->
+
+    <!-- show this instead if Intellibook booking creation fails -->
+    <!-- ngIf: $ctrl.bookingCreated && !$ctrl.intellibookBookingCreated -->
+    </main-information><!-- end ngIf: $ctrl.step === 1 -->
+    </invasion-form>
+        </div>
+  </div>
+  <div class="column3">
+  <h2> Preview of other camps </h2>
+    <a href="https://camp.co.uk/camp_locations/americamp/ "target="_blank">
+      <img class="responsive" width="100%" alt="" src="../media/Camp america.jpg" >
+      </a>
+    <a href="https://camp.co.uk/camp_locations/camp-south-africa/" target="_blank">
+  <img class="responsive" width="100%" alt="" src="../media/camp-south-agrica-header.jpg" >
+    </a>
+    <a href="https://camp.co.uk/camp_locations/camp-philippines/" target="_blank">
+    <img class="responsive" width="100%" alt="" src="../media/Camp philippines.jpg" >
+  </div>
+</div>
+
+
+</body>
+
+</html>
